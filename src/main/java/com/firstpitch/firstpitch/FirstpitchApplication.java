@@ -2,6 +2,7 @@ package com.firstpitch.firstpitch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +13,9 @@ public class FirstpitchApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FirstpitchApplication.class, args);
 	}
-	
-	@RequestMapping("/")
-	String helloWorld() {
-		return "Hello World";
-	}
 
+	@GetMapping("/")
+	String welcome() {
+		return "Welcome to Firstpitch";
+	}
 }
