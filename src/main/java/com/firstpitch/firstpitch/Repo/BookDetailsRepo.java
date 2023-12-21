@@ -6,7 +6,7 @@ public class BookDetailsRepo implements IBookDetailsRepo {
 
 	@Override
 	public void addBookToDb(BookDetails bookDetails) {
-		
+		System.out.println(bookDetails.getDetails());
 	}
 
 }
