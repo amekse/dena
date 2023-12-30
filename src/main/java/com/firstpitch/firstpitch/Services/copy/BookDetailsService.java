@@ -39,4 +39,29 @@ public class BookDetailsService implements IBookDetailsService{
 		return false;
 	}
 
+	@Override
+	public boolean updateBookDetails(Long id, String name, float price, String author, String description) {
+		try {
+			BookDetails bookDetails = bookDetailsRepo.findById(id).get();
+			bookDetails.updateDetails(name, price, author, description);
+			bookDetailsRepo.save(bookDetails);
+			return true;
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+
+	@Override
+	public BookDetails deleteBookDetails(Long id) {
+		try {
+			BookDetails bookDetails = bookDetailsRepo.findById(id).get();
+			bookDetailsRepo.deleteById(id);
+			return bookDetails;
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
 }

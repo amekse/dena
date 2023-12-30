@@ -37,7 +37,25 @@ public class BookDetails {
 		this.price = price;
 	}
 	
-	@Override
+	
+	public void updateDetails(String name, float price, String author, String description) {
+		if(name.length() > 0) {
+			this.name = name;
+		}
+		
+		if(price > 0) {
+			this.price = price;
+		}
+		
+		if(author.length() > 0) {
+			this.author = author;
+		}
+		
+		if(description.length() > 0) {
+			this.description = description;
+		}
+	}
+	
 	public String toString() {
 		return String.format(
 	        "Book[id=%d, name='%s', price='%.2f', author='%s', description='%s']",

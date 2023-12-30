@@ -42,4 +42,24 @@ public class APIMap implements IAPIMapping {
 			return new APIResponse("Server Error", true);
 		}
 	}
+
+	@Override
+	public APIResponse updateBookById(Long id, String name, float price, String author, String description) {
+		if(bookDetailsService.updateBookDetails(id, name, price, author, description)) {
+			return new APIResponse("Update successful", false);
+		}
+		return new APIResponse("Update failed", true);
+	}
+
+	@Override
+	public APIResponse deleteBookById(Long id) {
+		BookDetails bookDetails = bookDetailsService.deleteBookDetails(id);
+		if(bookDetails != null) {
+			TypeConverter typeConverter = new TypeConverter(bookDetailsService.fetchBookList());
+			return new APIResponse(String.format("%s", typeConverter.booksListToString()), false);
+		}
+		return new APIResponse("Update failed", true);
+	}
+
+	
 }
