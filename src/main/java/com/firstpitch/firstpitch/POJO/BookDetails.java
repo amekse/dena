@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "books")
+@Table(name = "bookdetails")
 public class BookDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -27,6 +27,8 @@ public class BookDetails {
 	@JsonProperty("description")
 	@Column(name = "description")
 	private String description = "";
+	
+	public BookDetails() {}
 	
 	public BookDetails(String name, float price, String author, String description) {
 		this.name = name;
